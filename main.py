@@ -117,14 +117,14 @@ try:
     st.write(f"🔻 SHORT Score: {short_score}/8")
 
     st.subheader("🤖 ML-Modell-Vorhersage")
-    if prediction == 1:
-        st.success("📈 ML sagt: LONG")
+    if prediction == 1 and long_score >= 5:
+        st.success("📈 ML + Score sagen: LONG")
         ml_signal = "LONG"
-    elif prediction == -1:
-        st.error("📉 ML sagt: SHORT")
+    elif prediction == -1 and short_score >= 5:
+        st.error("📉 ML + Score sagen: SHORT")
         ml_signal = "SHORT"
     else:
-        st.warning("⏸ ML sagt: NEUTRAL")
+        st.warning("⏸ Keine klare Übereinstimmung (ML + Score)")
         ml_signal = "NONE"
 
     # Trade-Ziele
